@@ -1,0 +1,24 @@
+Docs:
+    -- HTML:
+    • <ul> → Unorder list
+           → List anytype of object(text, links, image, ...) which order doesn't matter
+           → the items are display by default with bullet points!
+      • <li> Content </li>, 
+      • <li> Content </li>
+      • ...
+
+    • <ol> → Order list which order matters!
+           → the items are display by default with numbers
+      • <li> Content </li> 
+      • ...
+
+    • <dl> → Description list which display terms/metadata info of a page; or used as glosary!
+      • <dt> DescriptionTerm </dt> → description term
+      • <dd> DescriptionContent </dd> → description content
+      • <dt> DesriptionTerm </dt> → description term
+      • <dd> DescriptionContent </dd> → description content
+      • ...
+
+    -- CSS:
+    • ul → list-style-type: circle || disc || square || none
+    

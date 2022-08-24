@@ -1,12 +1,32 @@
 Docs:
     -- HTML
-    • <div> → division element; by default not visual appear!
-            → Block-level Element: Start on a new line and fit at the all available space(all width)!
-      • We can add inside this what we want e.g Hero block(backgroud, header and a paragraph)
-      
+    Generic containers:
+     • <div> → division element; by default not visual appear!
+             → Block-level Element: Start on a new line and fit at the all available space(all width)!
+       • We can add inside this what we want e.g Hero block(backgroud, header and a paragraph)
+       
+     • <span> → container often used for styling text, icon, logos, so on
+              → Inline-level Element: Not start on a new line and not going to fit at the all width of the page
 
-    • <span> → container often used for styling text, icon, logos, so on
-             → Inline-level Element: Not start on a new line and not going to fit at the all width of the page
+    Semantic container:
+     - Use this wherever is possible; helps search engine to better understand our pages!
+     - These are more meaningul
+     • <article> → Represent articles; any independent self-container content:
+                   → Forum post
+                   → Comments
+                   → Reviews
+                   → Product cards
+                   Can contain whatever :
+                   → images, tables, list, so on!
+     • <figure> → We use this to wrap <img> to set this is a figure and not just an image!
+                → Just a container for figures; like figures have caption we use:
+                  • <figcaption> Caption </figcaption> → We can set the text caption 
+     • <mark> → We can use this when we can to replace <span> container when we are using as styling any text!
+              → Default style is highlight the content with yellow background!  
+     • <time> → We wrap our time information, this doesn't style anything just represent better our markup
+                -- attribute:
+                 • datetime="yyy-mm-dd hh:mm"  → We can set time here just for search engine understand better!
+
 
 
     -- CSS

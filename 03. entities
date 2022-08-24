@@ -1,0 +1,11 @@
+Docs:
+    • Syntax → &ent; 
+    • > &gt;
+    • < &lt;
+    • & &amp; 
+    •   &nbsp; → No breaking space between two words(stick together in same line); replace a regular space with this!!
+    • " &quot;
+    • ' &apos;
+    • © &copy;
+    • ® &reg;
+    • ...

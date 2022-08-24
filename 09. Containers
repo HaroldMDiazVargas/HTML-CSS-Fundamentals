@@ -1,0 +1,13 @@
+Docs:
+    -- HTML
+    • <div> → division element; by default not visual appear!
+            → Block-level Element: Start on a new line and fit at the all available space(all width)!
+      • We can add inside this what we want e.g Hero block(backgroud, header and a paragraph)
+      
+
+    • <span> → container often used for styling text, icon, logos, so on
+             → Inline-level Element: Not start on a new line and not going to fit at the all width of the page
+
+
+    -- CSS
+    • background-color: gold; → set background color of an element, e.g <div> container

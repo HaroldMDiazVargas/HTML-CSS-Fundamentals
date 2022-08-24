@@ -8,3 +8,7 @@ Docs:
         • name="keyword" content="kw1, kw2" → set keywords of the page
         • name="description" content="desc..." → set description of the page
       • <title> ... </title> → set title for the page
+      • <link> → We define a link to a resource
+        -- attributes:
+           • rel="": relationship determinates the type of resource we're linking to this document e.g "stylesheet"
+           • href="" set the hyperlink reference; relative/absolute url

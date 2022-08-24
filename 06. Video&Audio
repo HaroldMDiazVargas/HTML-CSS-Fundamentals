@@ -1,0 +1,18 @@
+Video and Audio
+    -- HTML
+    • Free photos and videos in different sizes → https://www.pexels.com
+    • <video> AlternativeText </video> 
+      → This alternative text will be display when the browser doesn't support videos
+      → When there's an error with net connection and video is not loaded; it will display 
+        a static black window video but with not movement!
+      -- attributes:
+         • src="" → set the relative/absolute path of the video
+         • controls: boolean attribute to display play, pause, screen, on the video
+         • autoplay: boolean attribute to make video autoplay when we reach the page
+         • loop: boolean attribute to video nevers stops
+
+    • <audio> AlternativeText </audio> 
+       → This is similar of video, and has the same attributes!! 
+
+    -- CSS
+    • The same stylesheet similar of <img> elements!

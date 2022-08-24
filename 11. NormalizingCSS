@@ -1,0 +1,8 @@
+Docs:
+    - Provide basic stylesheet for basic html elements to look exactly the same way across different browsers
+    - Allows us to avoid deal issues render in different browsers 
+    → https://necolas.github.io/normalize.css/8.0.1/normalize.css
+    → line-height: 1.15; (different browsers set different values)
+    → margin of <body> to 0; (not space around content of body element)
+    Link:
+     • <link rel="stylesheet" href="css/styles.css" /> => before our custom stylesheets!!

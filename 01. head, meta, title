@@ -1,0 +1,10 @@
+Docs:
+    • By convention we use lowercase for all in html except for <!DOCTYPE html>
+    • <html lang="en"> → define language
+    • <head> head section
+      • <meta ...> 
+        • charset="UTF-8" →  define the character set
+        • name="viewport" content="..." → define basic/require for viewport of mobile and web 
+        • name="keyword" content="kw1, kw2" → set keywords of the page
+        • name="description" content="desc..." → set description of the page
+      • <title> ... </title> → set title for the page

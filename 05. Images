@@ -1,0 +1,18 @@
+Docs: 
+    -- HTML
+    • Free images in original, small, medium and large sizes → https://unsplash.com
+    • Set descriptive names for images; helps search engine optimization
+    • <img>
+      - Attributes:
+        • src="" → relative/absolute path of the image
+        • alt="" → provide an alternative textual description of the image
+                 → use for blind people who use text-speech
+                 → helps search engine to understand context
+                 → when the image is not loaded(net issue) we see alternative text
+
+    -- CSS
+    • width: Used to define width of the content
+    • height: Used to define height of the content
+    • object-fit: cover; → Image cover its CONTAINING box(not the margin, border, padding; only the content!)
+                         → so the image will resize
+                         → potentially crop to display in the entire box

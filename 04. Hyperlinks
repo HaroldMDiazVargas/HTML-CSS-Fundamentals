@@ -1,0 +1,11 @@
+Docs:
+    • <a>content</a> → content can be plain text, img, ...
+    - Attributes:
+      • href(hypertext reference) → url, link, relative path, absolute path(/root-level)
+                                  → can be e.g file, img, another html, external url,...  
+                                  → #: To link top of the page
+                                  → #id: To link to an element with given identifier!
+                                  → "mailto:...": Mail client will open with pre-filled given email address
+      • download → boolean attribute, instead of seeing link, we download it!
+      • target="_blank" → to open link in a new tab
+      

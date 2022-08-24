@@ -1,0 +1,28 @@
+Docs:
+    -- HTML
+     - We have different built-in blocks to structure our page
+     • <header> → Used for introductory content of page such as:
+                   - <nav>
+                     - <ul> <li> <a>
+                   - Can also be inside of an <article> or of a <section>
+     • <main> → Represent the main content of the page → Only 1 main per page, otherwise VALIDATION ERROR!
+                  <section>       → Group related content   
+                    <h2,h3,>      → This is compolsury, a heading inside each section!
+                    <article>
+                      <section>  
+                      <section>
+                    <article>
+                    <article>
+                    ...
+                  <section>
+                    <heading>
+                    <article>
+                    <article>
+                    <article>
+                    ...
+     • <aside> → Used for advertisment or content not related to our <main> content
+     • <footer> → Use for conclusion content of page such as:
+                 - <nav>
+                   - <ul> <li> <a>
+     
+                 - Can be also Inside of an <article> or of a <section>

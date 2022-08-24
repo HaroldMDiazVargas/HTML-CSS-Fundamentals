@@ -1,0 +1,14 @@
+Docs:
+    • <p>...</p> → display any plain text
+    • <em>...</em> → emphasizes some content of our HTML. Display by default in italic!
+                   → We don't use as italic style
+                   → We use to search engines extract important info about our html document 
+    • <i>...</i> → display content as italic; DON'T USE IT deprecated
+    • <strong>...</strong> → represents importance, similar to <em>. Display by default in bold!
+    • <b>...</b> → display content as bold; DON'T USE IT deprecated
+    • <h1>
+    • <h2>
+    • ...
+    • <h6>
+
+    Use headings not by their size => by the hierarchy!!

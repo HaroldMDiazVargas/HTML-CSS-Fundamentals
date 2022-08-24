@@ -1,0 +1,17 @@
+Docs:
+    -- HTML
+    • <table> → Represent tabular data; is deprecated for lay out pages
+              → only for displaying tabular data
+      • <tr> Cells </tr>  →  table row element, we can have one or more cells
+        • <th></th>  →   header cells that have labels
+        • <td></td>  →   data cells that contain data
+          -- attributes of <th> & <td>:
+             • colspan="" → we set to a value to determinate how many cols to combine!
+        
+    • <thead> → Semantic section where we can add multiple rows which header cells <tr><th>...</th><tr>
+    • <tbody> → Semantic section we can add multiple rows
+    • <tfoot> → Semantic section we can add mostly case one row with header cells!!
+      
+
+    -- CSS
+    • border-collapse: collapse; Collapse the border in neighbor cells(no border between them)

@@ -1,0 +1,32 @@
+Docs:
+    - Set position:
+    • position: static → appear exactly at the normal position (default value for all elements!)
+
+    • position: relative → allow position element relative to its normal position without affect sibling elements position
+      • left: ±value;    → Add space at horizontal level (move at x axis)
+      • top: ±value;     → Add space at vertical level   (move at y axis)
+      • right: ±value;   → Add space at horizontal level (move at x axis)
+      • bottom: ±value;  → Add space at vertical level   (move at y axis)
+      • z-index: ±value; → move at z axis (closer or away from us); this rule takes value without units!
+
+    • position: absolute → allow position element relative to its container affecting sibling elements(render as if doesn't exist)
+                         → to make this works, the container itsel must allow position relative (position: relative)
+      • left: ±value;    → Add space at horizontal level (move at x axis) starting at left side of the container
+      • top: ±value;     → Add space at vertical level (move at y axis) starting at top side of the container
+      • right: ±value;   → Add space at horizontal level (move at x axis) starting at right side of the container
+      • bottom: ±value;  → Add space at vertical level (move at y axis) starting at bottom side of the container
+       
+    • position: fixed  → position fixed element relative to the viewport  affecting sibling elements(render as if doesn't exist)
+      • left: ±value;    → Add space at horizontal level (move at x axis) starting at left side of the viewport
+      • top: ±value;     → Add space at vertical level (move at y axis) starting at top side of the viewport
+      • right: ±value;   → Add space at horizontal level (move at x axis) starting at right side of the viewport
+      • bottom: ±value;  → Add space at vertical level (move at y axis) starting at bottom side of the viewport    
+
+    • position: sticky → position relative based on the user's scroll position.
+                       → the element start at normal position
+                       → the element position relative to its normal position when the scroll is pass!
+                       → the element only position when scroll pass over the container, the element does't goes far away of its container!
+      • left: ±value;    → Add space at horizontal level (move at x axis) when scroll pass horizontal
+      • top: ±value;     → Add space at vertical level (move at y axis) when scroll pass vertical
+    
+  

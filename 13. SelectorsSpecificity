@@ -1,0 +1,16 @@
+Docs:
+    - Selector specifity (weigth) or specifity triangle:
+      - ID selector => very specific (1,0,0) 
+      - Class & attribute selector => (0,1,0) 
+      - Element selector => less specific; (0,0,1) 
+
+    - Base on this weigth, browser decided what selector of css apply to style the elements!
+    - These can be combine such as:
+      - Apply element selector with pseudo-class => (0,1,1)
+      - Apply element selector with pseudo-element => (0,0,2)
+      - ...
+
+    - Don't use !important keyword to discard other rules!!
+        e.g selector {
+            ...  !important;   BAD PRACTICE!
+        }

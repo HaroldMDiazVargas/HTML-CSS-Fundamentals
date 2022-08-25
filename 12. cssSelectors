@@ -1,4 +1,10 @@
 Docs:
+    - Global selector;
+      • *, *::before, *::after {...}
+
+    - Root element selector:
+      • html {...} s
+
     - Basic Selectors:
       • By type:
         → element {...}

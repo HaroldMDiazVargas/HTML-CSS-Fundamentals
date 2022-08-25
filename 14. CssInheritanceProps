@@ -15,6 +15,11 @@ Docs:
         rule: inherit;   e.g border:inherit
      }
 
+    - If we don't specify nothing, by default we can see some rules are applied by browsers:
+      - font-size (most browers set 16, so this will be apply to all elements)
+      - standard font (font family)
+      - serif font
+      - ...
 
     - Properties/rules are inherited by default from the container:
     • border-collapse

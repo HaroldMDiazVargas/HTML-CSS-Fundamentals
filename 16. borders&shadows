@@ -37,6 +37,6 @@ Docs:
       → box-shadow: 0 0 30px grey;
 
     • text-shadow:  ±horizontalDistance(px,..) ±verticalDistance +softer/blurr color;  e.g apply to headings or any text!
-      → box-shadow: 3px 3px 5px rgba(0,0,0,0.2);
+      → text-shadow: 3px 3px 5px rgba(0,0,0,0.2);
       
    

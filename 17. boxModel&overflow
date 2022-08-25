@@ -1,0 +1,24 @@
+Docs:
+    - Set size of elements:
+    • width: By default are applied only to the content box
+    • height: By default are applied only to the content box
+    • padding: ... → By default makes looks our element with more size 
+    • border: ... → By default makes looks our element with more size
+
+    • box-sizing: content-box → the width and heigth(size) are applied only to the content box (default value)
+    • box-sizing: border-box → the width and height(size) are applied to border+padding+content 
+
+    *, *::before, *::after{
+        box-sizing: border-box;             BEST PRACTICE!
+    }           
+    
+
+    - Overflowing:
+    • overflow: visible; → we see the overflow content (default value) in both x & y directions
+    • overflow: hidden; → we hidden the overflow content in both x & y directions
+    • overflow: scroll; → we see scroll bars(even if there's not content) to see overflow content in x & y directions
+    • overflow: auto; → we see scroll bars(only if there's overflow) to see overflow content in x & y directions
+    • overflow: hidden auto; → we see 'y' scroll bar(only if there's overflow) and we hide overflow content in x direction!
+    • overflow-x: hidden/auto/visible;
+    • overflow-y: hidden/auto/visible;
+

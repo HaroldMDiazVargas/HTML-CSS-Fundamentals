@@ -13,6 +13,7 @@ Docs:
     }           
     
 
+
     - Overflowing:
     • overflow: visible; → we see the overflow content (default value) in both x & y directions
     • overflow: hidden; → we hidden the overflow content in both x & y directions
@@ -22,3 +23,26 @@ Docs:
     • overflow-x: hidden/auto/visible;
     • overflow-y: hidden/auto/visible;
 
+
+
+    - Measurement units:
+    • Absolute:
+      • px → use for let elements of fixed size(no matter device) NOT RESPONSIVE!
+           → e.g let border size fixed!
+      • pt → use in printing
+      • in → use in printing
+      • cm → use in printing
+      • mm → use in printing
+    • Relative:
+      • % → relative to the size of the container
+          → body{} container has width:100vw and height:0 (default values)
+      • vw → relative to the viewport width
+      • vh → relative to the viewport heigth
+      • em → relative to the font size of the element e.g 10em(10 times font-size)
+           → remember font properties inherited from browser settings - font-size=16px;
+           → or use font-size: xx; to define font-size for that element or any selector to avoid inheritance!
+      • rem → relative to the font size of the root element(html element); not to the given element!
+
+    • html{
+        font-size: 62.5%    → converts font-size of root element to 10px!! GOOD practice!!
+    }

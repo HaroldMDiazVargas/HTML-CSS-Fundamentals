@@ -1,0 +1,42 @@
+Docs:
+    - Set borders:
+    • border: thinest style color;  → Apply to all borders!! - SHORT HAND
+      → border: 10px solid blue;
+      → border: 10px dotted blue; → dots 
+      → border: 10px dash blue;   → line dash ---
+    • border-top: thinest style color;
+    • border-rigth: thinest style color;
+    • border-buttom: thinest style color;
+    • border-left: thinest style color;
+
+
+    • border-width: topWidth rightWidth buttomWidth leftWidth;  → This is define thinest for the borders - SHORT HAND
+    • border-width: topWidth rightWidth;                        → We can supply top&rigth (left will take rigth, buttom will take top)
+    • border-top-width: width;
+    • border-rigth-width: width;
+    • border-buttom-width: width;
+    • border-left-width: width;
+
+    • border-color: topColor rigthColor buttomColor leftColor;  → Define the color for the borders - SHORT HAND
+    • border-top-color: color;
+    • border-rigth-color: color;
+    • border-buttom-color: color;
+    • border-left-color: color;
+
+    • border-radius: value;   → Make corners round!!
+       → border-radius: 100%  → Full perfect circle!!
+
+    See how to create another shapes such as:
+     - triangl up/down, rectangle, oval          →  https://css-tricks.com/the-shapes-of-css/
+
+
+
+
+    - Set shadows:
+    • box-shadow: ±horizontalDistance(px,..) ±verticalDistance +softer/blurr color;  e.g apply to containers !
+      → box-shadow: 0 0 30px grey;
+
+    • text-shadow:  ±horizontalDistance(px,..) ±verticalDistance +softer/blurr color;  e.g apply to headings or any text!
+      → box-shadow: 3px 3px 5px rgba(0,0,0,0.2);
+      
+   

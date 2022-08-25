@@ -1,0 +1,34 @@
+Docs:
+    - Set colors:
+      - rules apply here are:  background, background-color, color,...
+    • rule: rgb(value1, value2, value3)
+    • rule: rgba(value1, value2, value3, alpha)
+    • rule: colorName; e.g pink, red,
+    • rule: hsl(degree, saturation, lightness)
+    • rule: hsla(degree, saturation, lightness, alpha )
+    • rule: #aaaaaa;  (hexadecimal value with 6 characters)(not allow semi-transparence)
+    - We use alpha to make semi-transparence!!
+
+
+    - Define gradients:
+      - rules apply here are: background or background-image!
+      - Remember to duplicate the rule and set just a color to support old browsrs!!
+    Linear gradients:
+    • rule: linear-gradient(color1, color2);                     → from top to bottom
+    • rule: linear-gradient(to rigth, color1, color2);           → from left to rigth
+    • rule: linear-gradient(to bottom rigth, color1, color2);    → from top left corner to bottom rigth
+    • rule: linear-gradient(45deg, color1, color2);              
+    • rule: linear-gradient(45deg, color1, color2 30%);          → color2 starts 30% of available space
+    • rule: linear-gradient(45deg, color1, color2, color3);      → three colors!!
+    Radial gradients:
+    • rule: radial-gradient(color1, color2)                      → circle/ellipse at the center transitions to edges
+    • rule: radial-gradient(circle, color1, color2)              → keeps always a circle at center
+    • rule: radial-gradient(circle at top left, color1, color2)  → position of the circle
+    Gradient generator tool: https://cssgradient.io
+    - Play with this tool until get the better gradient, and copy and pase the css!!!
+
+
+
+    
+
+    

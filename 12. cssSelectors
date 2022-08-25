@@ -1,0 +1,167 @@
+Docs:
+    - Basic Selectors:
+      • By type:
+        → element {...}
+      • By ID:
+        → #id {...}
+      • By class
+        → .class {...}
+      • By attribute (NOT very common)
+        → element[attribute] {...}
+        → element[attribute1][attribute2] {...}             - Combine multiple attributes
+        → element[attribute="givenValue"] {...}             - Fragile, better search contain a pattern
+        → element[attribute*="containGivenPattern"] {...}   - Contains a given value
+        → element[attribute^="startValue"] {...}            - Start with a given value
+        → element[attribute$="endValue"] {...}              - Ends with a given value
+
+
+
+    - Relational Selectors:
+      • Descending selector:
+        Select given element is inside of another given container
+        Useful when we want to select an element which container has a specific selector(class, id)
+        and we dont want to set more selectors for the child element!
+        → selector1 selector2 {...}
+          → .products p {...}           - Select all <p> elements inside container of class="products" - even if are not direct child!
+
+      • Direct child selector:
+        Select only the direct child element of a given type that is inside of a given container
+        → selector1 > selector2 {...}
+           → .products > p {...}        - Select all <p> elements inside container of class="products" - Only the direct childs!!
+
+      • Direct one sibling(brother/sister) selector:
+        Select only the direct first element of a given type that is after of a given container
+        → selector1 + selector2 {...}
+           → .products + p {...}        - Select only 1
+
+      • Direct general sibling(brother/sister) selector:
+        Select all the direct elements of a given type that are after of a given container
+        → selector1 ~ selector2 {...}
+           → .products ~ p {...}        - Select all siblings
+
+      - Good and bad:
+         - Cleaner markup++
+         - Can be fragile-- → Depeding of the location of the elements in the DOM
+         - Not as fast as basic selectors-- → Most of time we don't see the difference performance
+           - Browsers start from the right side of the Selectors; check each 'selector2' if match selection of 'selector1'
+             We can end with query many elements
+        
+
+
+
+    - Pseudo-class Selectors:
+      - Are classes automatically that are applied by the browsers!
+      - All pseudo-classes start with a column
+      - We use to style elements in a particular state
+
+      • First child selector:
+        Select all the first child/s that are inside of a given container:
+        - first direct child no matter what element is(FRAGILE) if we change order of elements!
+        - first undirect child:
+          - first child(no matter type of element) in a <section>  or any other container!
+        → selector1 :first-child {...}  
+      
+      • First of type selector:
+        Select all the first ocurrence for each element if we don't specify the element:
+        - first direct child of each element type
+        - Doesn't take into accoun the undirect child; instead takes the 'containers' as 'direct childs'
+          so all elements inside these containers are selected!! (BAD PRACTICE)
+        → selector1 :first-of-type {...}  
+
+        Select all the first ocurrence for the element specified:
+        - first direct child of the specified element type
+        - first undirect child for each container(if exists) of the specified element type
+        → selector1 p:first-of-type {...}  
+    
+      • Last child selector:
+        Select all the last child/s that are inside of a given container:
+        - last direct child no matter what element is(FRAGILE) if we change order of elements!
+        - last undirect child:
+          - last child(no matter type of element) in a <section>  or any other container!
+        → selector1 :last-child {...}  
+    
+      • Last of type selector:
+        Select all the last ocurrence for each element if we don't specify the element:
+        - last direct child of each element type
+        - last undirect child of each element type
+        - last direct container child of each type e.g last <article> select all inside that container (BAD PRACTICE)
+        → selector1 :last-of-type{...}  
+
+        Select all the last ocurrence for the element specified:
+        - last direct child of the specified element type
+        - last undirect child for each container(if exists) of the specified element type
+        → selector1 p:last-of-type {...}  
+    
+      • nth-child() selector:
+        This is like a 'function', we can pass a value:
+         - odd:  Select odd elements
+         - even: Select even elements
+         - 3n, 5n,...: Select elements by given step
+        
+        Select all odd/even elements in a container:
+        → selector1 :nth-child(odd)
+        → selector1 :nth-child(even)
+
+        Select all odd/even elements of a specific type in a container:
+        → selector1 p:nth-child(odd)
+        → selector1 p:nth-child(odd)
+
+        Select elements by given step in a container(no matter the type even if we specify it!):
+         → selector1 :nth-child(3n)
+         → selector1 p:nth-child(3n)
+        
+      • Visited selector:
+        Used with links, to select links that have been visited:
+        → a:visited {...} 
+    
+      • link selector:
+        Select all hyperlinks
+        → a:link {...} 
+
+      • hover selector:
+        Select the element(can be any element!) specified when the user hover over it!
+        → a:hover {...} 
+        → h2:hover {...} 
+        → li:hover {...} 
+        → ...
+
+      • focus selector:
+        We use pretty much together with focus selector!
+        Select the element specified when the user focus(using tab) that element! is like hover but using tab(keyboard)
+        →a:hover,a:focus {...}
+
+
+
+    Pseudo-element Selectors:
+     - Style part of an element
+    
+      • first letter selector:
+        Select the first letter of a given element(h1,h2, p, li, ... )
+        → p::firs-letter {...} 
+        → selector1 > p:first-of-type::first-letter  {...}
+    
+      • first line selector:
+        Select the first line of a paragraph <p>
+        → p::first-line {...} 
+        → selector1 > p:first-of-type::first-line {...}
+
+      • selection selector:
+        Select the selections of all elements or any element if we don't specify
+        → ::selection {...}
+        → p::selection {...}
+    
+      • before selector:
+        Select the begining(start) of an element to do things such as:
+        - insert content at the begining(before) of a paragraph
+        - the content inserted can be display as block or whatever we want! (is a pseudo element!)
+        → ::before {content: "...";}
+        → selector::before {content: "...";}
+        → p::before {content: "..."; display: block;}
+
+      • after selector:
+        Select the end of an element to do things such as:
+        - Insert content at the end of an element (paragraph)
+                → ::after {content: "...";}
+        → selector::after {content: "...";}
+        → p::after {content: "...";}
+

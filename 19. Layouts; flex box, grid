@@ -1,0 +1,159 @@
+Docs:
+    -- Flexible Box Layout(FlexBox):
+    Laying out elements in one direction(in a row or in a column). 
+    • display: flex → Allow the flex layout in the container; but doesn't change the kind of container(inline or block!)
+    • flex-direction: row;            → set Main axis to horizontal and Cross axis to vertical direction
+    • flex-direction: row-reverse;    → set Main axis to horizontal and Cross axis to vertical direction and reverse the order!
+    • flex-direction: column;         → set Main axis to vertical and Cross axis to horizontal direction 
+    • flex-direction: column-reverse; → set Main axis to vertical and Cross axis to horizontal direction and reverse the order!
+
+    • justify-content: → align items/childs along the Main axis
+      • justify-content: flex-start;    → push to the start of the Main axis(default value)
+      • justify-content: flex-end;      → push to the end of the Main axis
+      • justify-content: center;        → items center in the Main axis
+      • justify-content: space-evenly;  → items separeated with equal space in the Main axis
+      • justify-content: space-between; → 1st item push start, last item pust at the end. Other items are distribuited equally in the Main axis
+      • justify-content: space-around;  → items distribuited equally with half-space at the edges in the Main axis
+
+    • align-items: → aligth items/childs along the Cross axis
+      • align-items: flex-start;    → push to the start of the Cross axis(default value)
+      • align-items: flex-end;      → push to the end of the Cross axis
+      • align-items: center;        → items center in the Cross axis
+      • align-items: space-evenly;  → items separeated with equal space in the Cross axis
+      • align-items: space-between; → 1st item push start, last item pust at the end. Other items are distribuited equally in the Cross axis
+      • align-items: space-around;  → items distribuited equally with half-space at the edges in the Cross axis
+      • align-items: baseline;      → items are placed according baseline(line is under content of any text!!) used with direction in row!
+      • align-items: stretch;       → items are streched all the container size, only works if we don't specify any kind of size rule! 
+
+    • flex-wrap: → Control the behaviour of fit(size) the items in the container according limit space
+      • flex-wrap: nowrap → items fit in one line; so the size can decrement!
+      • flex-wrap: wrap → items keep the original size; we wrap more lines in case there's not space in a single line
+
+    • align-content: → Only works when we use flex-wrap to have multiple lines in our flex container when we have many items/childs
+                     → controls the entire content align of the various lines
+      • align-content: flex-start;    → push the entire content to the start of the Cross axis
+      • align-content: flex-end;      → push the entire content to the end of the Cross axis
+      • align-content: center;        → push the entire items center in the Cross axis
+      • align-content: space-between; → 1st line push start, last line pust at the end. Other lines are distribuited equally in the Cross axis
+      • align-content: space-around;  → lines distribuited equally with half-space at the edges in the Cross axis
+
+    • align-self: → aligh each individual item/child(apply only to each item)
+      • align-self: flex-start  → push the given item at the start of the Main axis
+      • align-self: flex-end    → push the given item at the end of the Main axis
+      • align-self: center      → push the given item at the center of the Main axis
+    
+    • flex-basis: → set the initial size of all items(apply to container) or each individual item/child
+      • flex-basis: auto        → browsers look width/heigth property of each item
+      • flex-basis: value(unit) → set the width property when direction is row. Or set height property when direction is column
+
+    • flex-grow: → set the growth factor of the size for all items(apply to container)  or for each individual item/child; according available space
+      • flex-grow: 0            → the size of our item/s are not growing according available space, keep original size (default value)
+      • flex-grow: value(adim)  → the size of our item/s are growing at a given factor
+      
+    • flex-shrink: → set the shrink factor to reduce size for all items(apply to container) or for each individual item; according available space
+      • flex-shrink: 1          → the size of our item/s are reducing according available space(defualt value)
+      • flex-shrink: 0          → the size of our item/s are not reducing according available space, always keep original size
+
+    • flex: → Short-hand for set the flex-grow, flex-shrink and flex-basis((apply to container or each item)
+      • flex: value             → set the flex-grow rule
+      • flex: value1 value2     → set the flex-grow rule and flex-shrink(if not unit) or flex-basis if supply units
+      • flex: value1 value2     → set the flex-grow, flex-shrink and flex-basis!
+
+
+    -- Grids:
+    Laying out elements in both rows and columns
+    • display: grid → Allow the grid layout in the container; but doesn't change the kind of container(inline or block!)
+
+    • grid-template-rows: → define the number of rows and their sizes 
+      • grid-template-rows: size1 size2 size3 ...  → Creates many rows as we define size values!
+      • grid-template-rows: repeat(rows, size) ... → Creates many rows as we define in 'rows' and their size (for equal rows!)
+      • grid-template-rows: percent1 percent2 ...  → Creates many rows as we define with their respective percent of free space
+      • grid-template-rows: size1 size2 ... percent1 percent2 ...  → Creates many rows as we define with their respective sizes and percent of width container
+      • grid-template-rows: size1 size2 ... percent1 percent2 ...  → Creates many rows as we define with their respective sizes and percent of width container
+      • grid-template-rows: size1 size2 ... fr1 fr2 ...            → Creates many rows as we define with their respective sizes and percent of free space
+    
+
+    • grid-template-columns: → define the number of columns and their sizes 
+      • grid-template-columns: size1 size2 size3 ...    → Creates many columns as we define size values!
+      • grid-template-columns: repeat(cols, size) ...   → Creates many cols as we define in 'cols' and their size (for equal cols!)
+      • grid-template-columns: percent1 percent2 ...    → Creates many cols as we define with their respective percent of free space
+      • grid-template-columns: size1 size2 ... percent1 percent2 ...  → Creates many cols as we define with their respective sizes and percent of heigth container
+      • grid-template-columns: size1 size2 ... percent1 percent2 ...  → Creates many cols as we define with their respective sizes and percent of heigth container
+      • grid-template-columns: size1 size2 ... fr1 fr2 ...            → Creates many cols as we define with their respective sizes and percent of free space
+      
+
+    • grid-template: → short-hand to define at the same time the number of rows and cols and their sizes!!
+      • grid-template: size1 size2 size3 ... / size1 size2 size3 ... 
+      • grid-template: repeat(rows, size) / repeat(cols, size)
+      • grid-template: percent1 percent2 ... / percent1 percent2 ...
+      • grid-template: size1 fr1 fr2 ... / size1 size2 fr1...
+    
+    • justify-items: → align items along the horizontal axis of the 'grid'(apply to container)
+      • justify-items: stretch   → Each item takes the entire width of horizontal axis of the grid (default, only works if there's not rules of width)
+      • justify-items: start     → Each item is in the start of the horizontal axis of the grid
+      • justify-items: end       → Each item is in the end of the horizontal axis of the grid
+      • justify-items: center    → Each item is in the center of the horizontal axis of the grid
+
+    • align-items: → align items along the vertical axis  of the 'grid'(apply to container)
+      • align-items: stretch   → Each item takes the entire width of vertical axis of the grid (default, only works if there's not rules of height)
+      • align-items: start     → Each item is in the start of the vertical axis of the grid
+      • align-items: end       → Each item is in the end of the vertical axis of the grid
+      • align-items: center    → Each item is in the center of the vertical axis of the grid
+
+    • justify-content: → align the entire 'grid' according to the horizontal axis of the container(apply to container)
+      • justify-content: start    → Grid is move to the start of the horizontal axis of the container
+      • justify-content: end      → Grid is move to the end of the horizontal axis of the container
+      • justify-content: center   → Grid is move to the center of the horizontal axis of the container
+
+    • align-content: → align the entire 'grid' according to the vertical axis of the container(apply to container)
+      • justify-content: start    → Grid is move to the start of the vertical axis of the container
+      • justify-content: end      → Grid is move to the end of the vertical axis of the container
+      • justify-content: center   → Grid is move to the center of the vertical axis of the container
+
+    • row-gap: → set a gap/separation between rows(apply to container)
+      • row-gap: value      → add gaps between rows
+
+    • column-gap: → set a gap/separation between columns(apply to container)
+      • column-gap: value   → add gaps between columns
+
+    • gap: → short-hand to set set a gap/separation between rows and also columns(apply to container)
+      • gap: value          → add same gap value between rows and columns
+      • gap: value1 value2  → add gap value between rows(val1) and columns(val2)
+
+    • justify-self: → align a given item at the horizontal 'grid' axis (apply to items)
+      • justify-self: start   → Given item is in the start of the horizontal axis of the grid
+      • justify-self: center  → Given item is in the center of the horizontal axis of the grid
+      • justify-self: start   → Given item is in the end of the horizontal axis of the grid
+
+    • align-self:  → align a given item at the vertical 'grid' axis (apply to items)
+      • align-self: start     → Given item is in the start of the vertical axis of the grid
+      • align-self: center    → Given item is in the center of the vertical axis of the grid
+      • align-self: end       → Given item is in the start of the vertical axis of the grid
+
+    • grid-row: → set the placement rows-cells to take for each item(apply to items)
+      • grid-row: 1  → place item to first row
+      • grid-row: 2  → place item to second row
+      • grid-row: 1 / limitLine    → place item to first row and extends to a given line(takes cells that these lines close) e.g 1 / 3
+      • grid-row: 1 / lineBackward → place item to first row and extends to a given backward line(takes cells that these lines close) e.g 1 / -1
+      • grid-row: 1 / span #cells → place item to first row and extends number of cells; e.g 1 / span 2
+
+    • grid-column: → set the placement columns-cells to take for each item(apply to items) 
+      • grid-column: 1  → place item to first column
+      • grid-column: 2  → place item to second column
+      • grid-column: 1 / limitLine    → place item to first column and extends to a given line(takes cells that these lines close) e.g 1 / 3
+      • grid-column: 1 / lineBackward → place item to first column and extends to a given backward line(takes cells that these lines close) e.g 1 / -1
+      • grid-column: 1 / span #cells → place item to first column and extends number of cells; e.g 1 / span 2
+
+    • grid-area: → set the placement rows-columns-cells to take for each item(apply to items) Weird Syntax!
+      • grid-area: startRow / startColumn / EndRow / EndColumn
+      • grid-area: 1 / 1 / 1 / 3 → from (1,1) to (1,3) => First 1 row and takes 3 columns!
+    
+    • grid-template-areas: → Set the areas names(apply to container)
+      • grid-template-areas: "area1 area2" "area3 area4" ... → double quotes("") are rows, represent the area name for each row-column
+      • grid-template-areas: 
+          "header header" 
+          "sidebar main" 
+          ".     footer"      →  (.) represent an empty area
+    • grid-area: → Set placement of items binding to a given areaName(apply to items) 
+      • grid-area: areaName   → we don't use double quotes
+      • grid-area: header     → set item placement to the corresponding header area!!

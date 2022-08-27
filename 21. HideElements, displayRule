@@ -1,0 +1,53 @@
+Docs:
+    -- Display CSS property
+    • display: inline → element will be inline:
+                        - will not appear new line
+                        - will not fit entire line, only the necessary width!
+    • display: block → element will be block:
+                     - will appear new line
+                     - will fit entire line
+    • display: inline-block → element will be inline-block:
+                            - will appear new line
+                            - will not fit entire line, only the necessary width
+
+    • display: none              → element will disappear(is created in DOM but never render)
+    • visibility: hidden         → element will be hidden for us, but the blank space will appear!
+    • hidden(Html/DOM attribute) → element will be disppaear(is created in DOM but never render)
+                                 → If we apply this to html element and then apply css rule to:
+                                   display: block, inline,... Will appear!!   
+
+
+    --Block-level elements
+    address     article 
+    aside       blockquote     
+    canvas      dd      
+    div         dl   
+    dt         fieldset   
+    figcaption figure      
+    footer     form      
+    h1-h6       header     
+    hr          li
+    main        nav
+    noscript    ol     
+    p           pre 
+    section     table 
+    tfoot       ul     
+    video
+    
+
+    Inline-level elements 
+    a           abbr
+    acronym     b
+    bdo         big
+    br          button
+    cite        code
+    dfn         em
+    i           img
+    input       kbd
+    label       map
+    object      output
+    q           samp
+    script      select
+    small       span
+    strong      sub
+    sup         textarea

@@ -1,0 +1,10 @@
+Docs:
+    -- Media Queries
+    - Provide different styles fot different devices depending on their features such as screen sizes, orientations, so on!
+    - Approach used most → Mobile first!
+    • @media screen/print and (rule: value) {...}
+      • @media screen and (min-width: 600px) {...}                           → Style devices with screen at least 600px
+      • @media screen and (max-width: 850px) {...}                           → Style devices with screen at least 850px
+      • @media screen and  (min-width: 600px) and (max-width: 850px) {...}   → Style devices with screen between [600-850px]
+      • @media print  {...}                                                  → Use absolute units(pts font, cm/inch for padding/margins)
+    - Use many breakpoints of different devices according of our design/business logic!

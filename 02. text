@@ -10,5 +10,112 @@ Docs:
     • <h2>
     • ...
     • <h6>
+        Use headings not by their size => by the hierarchy!!
 
-    Use headings not by their size => by the hierarchy!!
+
+    • font-family: → set family font: → fontsquirrel.com/fonts.com/myfonts.com/fonts.google.com/adobe.com → Free/expensive licenses or medium monthly subscription!(Good)
+                    - Serif: Small line in the edges(books, newspaper, magazine). Georgia, TimesNewRoman
+                    - Sans-serif: More modern, Avenir, Arial, Futura, Helvetica, Roboto
+                    - Monospace: Width of all characteres is the same; Consolas, Courier, Ubuntu
+                    - Formats of fonts:
+                      - TTF/OTF/EOT/WOFF/WOFF2.0 (WOFF are more compressed for webapps) → Convert to WOFF!!
+    • font-family: fontStack → Set a web-safe font
+      • font-family: Arial, Helvetica, sans-serif;   → Apply Arial or Helvetica or generic sans-serif whatever is available
+      • font-family: Georgia, 'Times New Roman', Times, serif; 
+
+    • font-weight: →  Boldness/Weight of font
+      • font-weight: 100 → very thin
+      • font-weight: 900 → really thick
+      • font-weight: bold → equal to 700
+      • font-weight: normal → equal to 400
+    
+    • font-style: → Style of font
+      • font-style: normal → Default value of the font style
+      • font-style: italic → Set italic text
+    
+    • font-size: → Set size of text using name(large,medium); absolute units(px) or relative units(em,rem; BEST PRACTICE!)
+                 → type-scale.com  → find values of 'rem' for each <h1-h6> elements!  
+      • font-size: 1rem  → Font size of the html element(16px - 62.5%*16px = 10px)
+                         → Change mediaqueries the HTML element font-size → Get a good responsive font-size in our app
+
+     • color: → Set color of the text/icon/logos
+      • color: #000 → Default value (black)
+
+    -- Spacing in our text:
+    • margin: → Use 'rem' values when define margin of headings; paragraphs, text! LawOfProximity problem!
+      • margin: topMargin rightMargin bottomMargin leftMargin 
+
+    • line-height: → Specify the height/verticalSpace of our lines
+      • line-height: 1.5 → Use without unit to use as a multiplier  → 1.5*remSize → Everytime rem changes, line-height changes!! GOOD
+
+    • letter-spacing: → Control space between letters in our text
+      • letter-spacing: ±value → Better use px instead of rem values
+      • letter-spacing: 0px → Play in the DevTools!
+      • letter-spacing: -1px 
+
+    • word-spacing: → Control space between words in our text
+      • word-spacing: ±value → Bettwe use px; play in DevTools!
+      • word-spacing: 5px  
+
+    • width: → We can set the width property to our text elements to set Number of characters per line!!
+      • width: #Zerocharacters →  Ideal is betweenn 50-70 characters
+      • width: 50ch → max of 50 Zerocharacters because some characters are smaller(i,j,l, ...)
+
+    -- Formatting Text:
+    • text-align: → Control horizontal alignment of our text
+      • text-align: left → Default value (Good!)
+      • text-align: right → Text at the rigth
+      • text-align: center → Text centered align
+      • text-align: justify → Text justified (Not use, patch spaces)
+
+    • text-indent: → Adding indentation to our first line
+      • text-indent: value → Btter to use 'rem' 
+      • text-indent: 1rem
+
+    • text-decoration: → Set some kind of decoration to our text
+      • text-decoration: underline → We underline our text
+      • text-decoration: line-through → Tachar texto !! Useful show prices not longer valid
+
+    • text-transform: → Convert our text 
+      • text-transform: Capitalize → Use for titles
+      • text-transform: Uppercase
+      • text-transform: Lowercase
+
+    • white-space: → Controlling wrapping
+      • white-space: nowrap → We don't have multiple lines, just 1 and horizontal scrolling or use overflow to truncate it!
+
+    • column-count: → Set the number of columns of our text
+      • column-count: 2 → Set two columns like papers
+    • column-gap: → Set thespace/gap between columns
+      • column-gap: 1rem 
+    • column-rule: → Adding a separation line between columns
+      • column-rule: width style color
+      • column-rule: 3px dotted #999 
+
+    • direction: → Change direction of our text
+      • direction: ltr → Text becomes from left-to-right
+      • direction: rtl → Text becomes from right-to-left; used in arabian languages
+
+    -- Embedded fonts:
+    • @font-face: → Register a custom font and tell browser where to find them! EMBEDDED!!
+      • font-family: "fontName"                      → Set to an arbitraty name 
+      • src: url("abs/relPathFont1Ext1") format("fontFormat1"),
+             url("abs/relPathFont1Ext2") format("fontFormat2"),...   → Set various formats for our font to backup if browsers don't support the first one!
+      • font-weigth: fontWeigth;
+      • font-style:  fontStyle;
+      • font-display: → Specify how to deal with the Flash of Unstyled Text (FOUT) problem
+        • font-display: auto → Lets browser decide what should be done; change according browser! (default, Is not good)
+        • font-display: swap → Browser swaps to our custom font when is available (Is not good)
+        • font-display: fallback → Browser uses fallback font during a threshold period; if is unaivailable we keep using the fallback font!
+        • font-display: block → Browser hide text until the font is available (Is not good)
+        • font-display: optional → Browser looks this font as optional, and is downloaded it will use in subsequence pages (Good)
+        - Use fontsquarrill → Settings specify to remove characters that we don't need in our webpage → Reduce download time!
+    
+    • <link rel="preconnect" href="fontServiceURL" />       → Stablish connection to this url 
+    • <link href="fontStylesheetURL" rel="stylesheet" />    → Get the css of the embedded font from external service(allocated external server)  
+      • <link href="fontStylesheetURL...+queryParams"../>   → We can add/remove queryParams to get fonts in different weigths, change font-display tecnhique
+
+    -- System fonts:
+    - We will have a web page with fonts will change depending of the system but we remove FOUT problem!!
+    • font-family: → We can set this to the system font stack; to take font of the OS(mac, windows, android, ...)
+      • font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, ...

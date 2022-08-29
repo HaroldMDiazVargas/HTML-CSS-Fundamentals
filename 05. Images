@@ -1,18 +1,148 @@
 Docs: 
+    -- General we have two types of images:
+     -- Raster images
+     - For photos
+     - Come from cameras/scanners or produce for software
+     - JPEG → 16M Colors (Used most of the time when we dont' need Transperency or animation )
+     - GIF → 256 Colors, Transperency(without background) & Animation 
+     - PNG → 16M Colors, Transperency & Animation
+     - WebP → 16M Colors, Transperency & Animation (Modern Format, smaller sizes!)
+       -- Convert to WebP:
+       - Use PhotoShop
+       - Use Sketch
+       - Online tools(cloudconvert.com)
+       - Command-line tools
+ 
+     -- Vector images
+     - Simple graphics, logos, icons, logos, backgrounds (small bytes size)
+     - built by software(Illustrator) or online tools(svgbackgrounds.com)
+     - Scalable Vector Graphics, always sharp!
+
+
+
+
+
     -- HTML
     • Free images in original, small, medium and large sizes → https://unsplash.com
+    • Free icons  → https://flaticon.com
     • Set descriptive names for images; helps search engine optimization
-    • <img>
+    • <img>   → Only use this tag for content images, not for background images!
       - Attributes:
-        • src="" → relative/absolute path of the image
-        • alt="" → provide an alternative textual description of the image
-                 → use for blind people who use text-speech
-                 → helps search engine to understand context
-                 → when the image is not loaded(net issue) we see alternative text
+        • src="" → relative/absolute path of the base image(e.g image of size 400x400px)
+        • alt="" → provide empty string when the image is pure for DECORATIVE for
+                   an alternative textual description of the image when is for real CONTENT:
+                   → use for blind people who use text-speech
+                   → helps search engine to understand context
+                   → when the image is not loaded(net issue) we see alternative text
+        • srcset="" → provide set of sources for different screnns or different resolutions: →   Only for beatiful HomePages
+          --For screens 
+            - We define source of images and the respective DPR(Device Pixel Ratio)
+            - This is used when the image 'width' we want always the same!(not using relative units) and render only according DPR
+            • srcset="imagePath1 DPR, imagePath2 DPR2, imagePath3 DPR3, ... "    
+            • srcset="sameBaseImage 1x, imagePathOfDoublePx 2x, imagePathOfThreePx 3x, ... "        
+          --For different resolutions: → https://responsivebreakpoints.com
+            - We define source of images and the respective resolution of the devices(recommendation is use 3-5 resolutions)
+            - We use this when we want to render image at different size (use relative units) depending of resolution and DPR
+            • srcset="imagePath1 actualWidth, imagePath2 actualWidth, imagePath3 actualWidth, ... "    
+            • srcset="sameBaseImage 400w, imagePathOfDoublePx 800w, imagePathOfThreePx 1200w, ... "       
+        • sizes="" → To set image size according screen size; we set bunch of sizes using mediaConditions
+                   → To avoid using media queries(impact browser decition according resolutin, DPR and fixed width defined in media queries)
+            • sizes="mediaCondition1 setImgSize1, mediaCondition2 setImgSize2, mediaCondition3 setImgSize3  ..."
+            • sizes="(max-width: 500px) 50vw, (max-width: 700px) 100vw, 25vw, ..."   
+    • <picture> → Support different formats images for clients use old browsers or not-support our formats!
+      - Add child-elements:
+        • <source> → To set one source for our picture element(webp format)
+          -- Attributes:
+           • type="type/subType" 
+             • type="image/webp" 
+           • srcset=""  → The same concept before
+           • sizes=""   → The same concept before
+        • <source> → To set another source for our picture element(jpeg format)
+          -- Attributes:
+           • type="type/subType" 
+             • type="image/jpeg" 
+           • srcset=""  → The same concept before
+           • sizes=""   → The same concept before
+           • media=""   → Apply media conditon(breakpoint) to set srcset according the screen! → Used for Art Directions(Zoom in/out)
+             • media="(max-width: 500px)"  → Apply this srcset to only devices until 500px! 
+        • <img> →  To add alternative text(alt) and support browser that don't support <picture> or <source> elements
+          -- Attributes → Only apply 'src' and 'alt'
+
+    • <script> → Use for Icon Fonts! (Place on head tag)
+      -- Attributes:
+      • src="" → js file of the icon font
+      - To use this we can use <span> with respective classes!
+    • <span> → Use this to apply classes of the Icon Font; we can see Docs → https://fontawesome.com/docs
+      - Class to set size of icon 
+      - Width
+      - Icons in a list
+      - ...
+
 
     -- CSS
-    • width: Used to define width of the content
-    • height: Used to define height of the content
+    -- Content-Images
+    - We apply rules for <img> html tag
+    • width: Used to define width of the content unless we specify box-sizing
+    • height: Used to define height of the content unless we specify box-sizing
     • object-fit: cover; → Image cover its CONTAINING box(not the margin, border, padding; only the content!)
-                         → so the image will resize
-                         → potentially crop to display in the entire box
+                         → so the image will resize keeping the aspect-ratio
+                         → so potentially crop to display in the entire box
+
+    -- Background-Images
+    • background or background-image: → Set the background of a container(color, gradient, image)
+      • background: url(imagePath)    → Set thepath of image use to background 
+      • background: url(imagePath) pos1 pos2    → Set thepath of image use to background and position the image(optional)
+    • background-repeat: → Set the repeation of the image
+      • background-repeat: no-repeat → Disable the horizontal & vertical repetion 
+      • background-repeat: repeat-x  → Only repeat along the horizontal axis
+      • background-repeat: repeat-y  → Only repeat along the vertical axis
+    • background-position: → Set the posiiton of the background image in the container(use this when don't set yet in 'background')
+      • background-position: ±value1 ±value2 → Set horizontal and vertical adjusment to move the image
+      • background-position: 100px 100px  → Move 100px to rigth and 100px to buttom
+      • background-position: -100px 100px → Move 100px to left and 100px to buttom
+      • background-position: 100% 100px   → Move to rigth-side of the container and 100p buttom
+    • background-size: → Set the size of the background image in the container
+      • background-size: value1 value2    → Set the width and height of the image
+      • background-size: 200px 200px
+      • background-size: 100% 100%        → Streched the entire size of the container in both axis! 
+      • background-size: cover            → Cover the entire size of the container while keeping the aspect-ratio
+    • background-attachment: → Set the a compolsoty position of the background image
+      • background-attachment: fixed  → The image will be fixed relative to the viewport(we will see the image always static!)
+
+    -- Sprites Optimization → One single request
+    - For one single request for icons, logos  → css sprites online tool to combine in a single image!
+    - Use background, background-position, width and height properties:
+      - Like we need to use these size properties, we need to have our images in BLOCK elements(div) or span but we need 
+        to convert to inline-block to accept width, height!!
+      <span...
+        • background: url("/images/sprite.png");
+        • width: 100px;
+        • height: 100px;
+        • display: inline-block;
+        • background-position: 0 0;
+      <div...
+        • background: url("/images/sprite.png");
+        • width: 100px;
+        • height: 100px;
+        • background-position: 0 0;
+
+    -- Data URLS/URIs Optimization → Embedded to HTML document
+    - We use 'data' protocol to represent a binay file in a sequence of characters
+    - For request faster → data URI generator tool(convert image to data URI)
+    - Benefits are not more than drawbackd DON'T USE!!
+     • <img href="DaraURI" .. >
+
+    -- Clipping
+    - Complex shapes for our images →  css clip maker online tool!
+     • clip-path: → polygon(values...)  • Apply this style rule to <img> element!
+
+    -- Filters
+    • filter: → Apply filters to <img> →  See all possible filters  https://developer.mozilla.org/en-US/docs/Web/CSS/filter
+      • filter: filter1(value) filter2(value)... 
+      • filter: grayscale(percent) blur(px) contrast(percent) ... 
+      Other filters → url, brightness, drop-shadow, hue-rotate, invert, opacity, saturare, sepia
+
+    -- Font Icons:
+    - Apply rules about 'font' to the parent of the icon:
+      • font-size: value → Font size of the parent container!
+      • color:  →  Color of the parent container!

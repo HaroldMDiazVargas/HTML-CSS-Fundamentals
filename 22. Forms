@@ -1,0 +1,140 @@
+Docs:
+    -- Global perspective of frameworks   
+    - A lot of people use CSS Frameworks to reduce time consuming for styling forms:
+      - colors, background, transitions, pseudo-class selectors, ... 
+      • Bootstrap (If we use most of features)
+      • Foundation
+      • Semantic UI
+      • UI Kit
+      • Materialize
+      • Miligram (If we don't use all featues of bootstrap, use this minimalist framework)
+    - Used as:
+      - Download Compiled CSS and Js
+      - Download source files
+      - CDN(Content Delivery Network) Servers around the world (access to img, css files, js files)
+        - Here we use <link and <script> tags
+
+
+
+    -- HTML
+    • <form>
+      -- Attributes:
+      • action="" → Relative/absolute URL to send the data, here server-side tecnhologies enter!
+      • method="" → How we send the data 
+        • method="POST" → Include values/fields in the body of the request
+        • method="GET"  → Append values/fields in the target URL
+        
+      -- Add child elements:
+      • <fieldset> → Used this when we have a complex form to put all fields into logical containers(sections)
+                   → This is equivalen to use <section> with <h2> element!
+        -- Add child elements:
+        • <legend> → Between tags we set legend/label we want to display to that fieldset
+        • <input> ..
+        • <input> ..
+
+      • <label> → Connect a simple label with our input field
+                → For text, email, number, password, ... Put this label before
+                → For checkbox, radio-buttons put this label after!
+        -- Attributes:
+        • for="" → Bind/Associate with the respective input field id
+    
+      • <input> → Set a new input field
+        -- Attributes:
+        • id="" → Set a unique identifier of the input field
+        • name="" → Set a name of the input field to send to server
+                  → Set a name for grouping various radio buttons
+                  → Set a name(property) for send a hidden field to the server
+        • type="" → Type of each input element/field
+          • type="text"     → Set a text input field; used for submit the form to server
+          • type="email"    → Set an email input field and get basic email address validation!
+          • type="number"   → Set an number input field and get buttons for change values(pops up key-number in mobile)
+          • type="password" → Mask the input
+          • type="color"    → Select form a palete color
+          • type="date"     → Date field with icon and can see mont/year/day and select!
+          • type="datetime" → Date field but without any icon, simple field
+          • type="checkbox" → Checkbox square field to select
+          • type="radio"    → Radio buttons to select
+          • type="range"    → Bar/Slide to move over a range
+          • type="file"     → Select and load a file
+          • type="submit"   → This is equivalent to <button> with type submit (but we can't use icon!)
+          • type="hidden"   → Used to send any information to server hidden e.g Id of any document in Database(Never store sensitive)
+        • value="" → Prepopullated a field to display except for hidden fields(we don't display but we prepoullated!)
+          • value="somePreContent"          → Place any pre-content
+        • placeholder="" → Placeholder any text
+          • placeholder="someAnyContent"    → Place any placeholder content
+        • readonly → Boolean attribute, the user can select but can't change the field(submit value of this field to server)
+        • disable → Boolean attribute, user can't select the field (Not submit value of this field to server)
+        • maxlength="" → Set max characters allowed for validation
+        • minlength="" → Set min characters allowed for validation
+        • autofocus → Boolean attr, page is loaded this will be focus (for login, register forms)
+        • autocomplete="off" → Disable autocomple third-party tip tool browser gets us as solution!
+        • list="" → Empty string to allow define custom style for <datalist> and option <elements>
+                  → Get focus the <input> will not display the suggestion list; we need to program in .js file
+        • checked → Boolean attribute, used for checkboxes, radio-buttons
+        • min="" → Set min value, used when range, number, ...
+        • max="" → Set max value, used when rage, number, ..
+        • multiple → Boolean attribute, used to select multiple files!
+        • accept="" → Set files/format user can select
+          • accept=".jpg, .png" → Select only jpg and png files
+          • accept="image/*"    → Select all type of images
+          • accept="video/*"    → Select all type of videos
+          • accept="audio/*"    → Select of type of audios
+        • required → Boolean attribute, make a field required
+
+
+
+      • <textarea> → Set a new text area field
+        -- Attributes:
+        - To Prepopullated a 'value' we don't have this attr, but we can just prepoullated between tags
+        • id="" → Set a unique identifier of the textare field
+        • cols="" → Number of characters in a line
+        • rows="" → Number of lines
+        • placeholder="" → Placeholder any text
+        • readonly → Boolean attribute, the user can't change the field(submit value of this field to server)
+        • readonly → Boolean attribute, user can't select the field (Not submit value of this field to server)
+        • maxlength="" → Set max characters allowed
+        • autofocus → Boolean attr, page is loaded this will be focus (for login, register forms)
+    
+      • <datalist> → Set a suggestion list for a particular <input> field
+        -- Adding child element:
+        • <option> → Between tags we set value of the option
+        • <option> → Between tags we set value of the option
+          -- Attributes:
+          • data-value="" → Numeric unique identifier we want to send to the server(prefix with data-; for custom and avoid display)
+    
+      • <select> → Set drop-down list
+        -- Attributes:
+        • name="" → Set the name of this field, used for submit the form to server
+        • id="" → Set a unique identifier of the field, used for bind label
+        • multiple → Boolean attribute, we can select multiple options
+        -- Adding child element:
+        • <optgroup> → Categorize/Separate when we have multiple options for different things
+          -- Attributes:
+          • label="" → Set a label to display for the option group
+          -- Adding child element:
+          • <option>
+          • <option> 
+          • <option> 
+          ...
+
+        • <option> → Use directyle without <optgroup> when we don't have separe option groups. Between tags we set value of the option!
+        • <option> → Between tags we set value of the option
+          -- Attributes:
+          • value="" → Numeric unique identifier we want to send to the server
+                     → We set one <option> to empty string; we will set whole drop-down list as optional for the user!
+          • selected → Boolean attribute, selected by default one option   
+
+
+
+      • <button> → Display a simple button 
+        -- Attributes: 
+        • type="" → Type/action of button
+          • type="submit"   → Submit the form
+          • type="clear"    → Clear all fields
+
+
+
+    -- CSS
+    • resize: → This rule is applied to field such as <textarea> to avoid resizeable!
+      • resize: none → Unable resize
+

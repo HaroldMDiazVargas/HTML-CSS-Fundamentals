@@ -1,0 +1,69 @@
+Docs:
+    -- CSS:
+    -- 2D-Transformations:
+    • transform:  → We can apply any transform function to an element(ORDER matters!)
+                  → We can set in this rule multiple transformations functions, but we can't not repeat the 'transform' rule for an element!
+      • transform: rotate(±15deg)       → Rotate depending sign along horizontal axis
+        • transform: rotateX(±15deg)    → Rotate depending sign along horizontal axis
+        • transform: rotateY(±15deg)    → Rotate depending sign along vertical axis
+      • transform: scale(1.5)           → scale to make bigger/small according 1.0 threshold
+      • transform: scale(±15deg)        → Skew to rigth or left according to the sign
+      • transform: translate(±10px)     → Move along horizontal axis according sign
+        • transform: translate(±10px, ±10px)  → Move along horizontal and vertical axis according signs of the values
+        • transform: translateX(±10px)        → Move along horizontal axis according sign
+        • transform: translateY(±10px)        → Move along vertical axis according sign
+      • transform: rotate(±10px) translateX(±10px) → Combine multiple transformations!
+
+    -- 3D-Transformations:
+    • perspective: → Define a perspective for an element/s (Apply to a container to have same perspective)
+      • perspective: 200px → Set perspective of 200px, an arbitraty value!
+    • transform: perspective(value) translateZ(±value) → Set translation of Z axis and set distance with perspective!
+      • transform: translateZ(±10px) → Use this when we have defined perspective already or share same perspective for childs
+    • transform: perspective(200px) rotateY(±15deg) → 
+    • transform-origin: → Set origin of the transformation(default is half/middle)
+      • transform-origin: 0 0 →  Top-left corner of the element
+      • transform-origin: 0 50% → Left-middle of the element 
+    
+    -- Transitions:
+    • transition: → Animate one or more rules; for simple animations!
+      • transition: property1 duration1 timeFunc1 delay1, property2 duration2 timeFunc2 delay2 ...
+      • transition: transform 0.5s          → Set a duration of 0.5s for see the element transformation!
+      • transition: transform 0.5s linear   → Set a duration of 0.5s for see the element transformation in a linear way!
+      • transition: transform 0.5s ease-in   → Set a duration of 0.5s for see the element transformation in a ease-in way!
+      • transition: transform 0.5s ease-out  → Set a duration of 0.5s for see the element transformation in a ease-out way!
+      • transition: transform 0.5s cubic-eazier(...)   → Set a duration of 0.5s for see the element transformation in a custom way!
+      • transition: transform 0.5s cubic-eazier(...)   → Set a duration of 0.5s for see the element transformation in a custom way!
+      • transition: transform 0.5s linear 1s  → Set a duration of 0.5s and delay of 1s for see the element transformation in a linear way 
+      • transition: transform 0.5s, background 1s → Set a duration of 0.5s and 1s for transform and background rules respectively!
+
+    -- Animations:
+    • @keyframes → Define bunch of keyframes for our animation(like a movie) → See animate.style( Re-usable animations )
+                 → To reuse the animation, just create a class with all animation rules(animation-name, animatation-duration, etc )
+      • @keyframes nameOfAnimation {...}  
+        • percentTimeOfAnim {...} → Define a keyfram!
+        • 0% {...}  → set rules at the initial animation
+        • 25% {...} → set rules at the 25% of the time of animation
+        • 50% {...} → set rules at the 50% of the time of animation
+        • 100% {...} → set rules at the 100% or end of the time of animation
+    • animate: → Set all possible rules for the animation in once (short-hand)
+      • animate: name duration timing-func delay iter-count direction fill-mode → Set all rules at once!!!
+      • animate: name 4s ease-out 1s infinite reverse forwards 
+    • animatation-name: → Set the animation name we will use for that element/selector 
+      • animatation-name: nameOfAnimation 
+    • animatation-duration: → Set the duration of the animation
+      • animatation-name: 4s → Animation of 4 seconds
+    • animatation-delay: → Set the delay of the animation
+      • animatation-delay: 1s → Animation starts after 1 second
+    • animatation-iteration-count: → Set times animation runs
+      • animatation-iteration-count: 1 → Animation only runs once (default)
+      • animatation-iteration-count: infinite → Animation in a loop
+    • animatation-timing-function: → Set the function/way animation
+      • animatation-timing-function: linear 
+      • animatation-timing-function: ease-in 
+      • animatation-timing-function: cubic-eazier
+    • animatation-direction: → Set the direction animation
+      • animatation-direction: normal → Animation start from first frame to last frame(default)
+      • animatation-direction: reverse → Animation start from last frame to first frame
+      • animatation-direction: alternate → Animation alternates between normal-reverse
+    • animatation-fill-mode: → Set the state will end the animation
+      • animatation-fill-mode: forward → If the animation will end at 100% frame; will not restart art 0% frame

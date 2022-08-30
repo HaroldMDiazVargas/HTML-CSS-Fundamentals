@@ -3,12 +3,15 @@ Docs:
     • display: inline → element will be inline:
                         - will not appear new line
                         - will not fit entire line, only the necessary width!
+                        - We can't apply width/height properties
     • display: block → element will be block:
                      - will appear new line
                      - will fit entire line
+                     - We can apply width/height properties
     • display: inline-block → element will be inline-block:
                             - will appear new line
                             - will not fit entire line, only the necessary width
+                            - We can apply width/height properties
 
     • display: none              → element will disappear(is created in DOM but never render)
     • visibility: hidden         → element will be hidden for us, but the blank space will appear!

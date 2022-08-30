@@ -1,0 +1,42 @@
+Docs:
+    -- CSS Best Practices:
+    • Following a naming convention
+    • Creale logical section in our stylesheet:
+      - Basic styles, typography, forms, nav-bar, ...
+    • Avoid over-specific selectors
+    • Avoid !important
+    • Sort CSS properties(VSCode)
+    • Take advantage of style inheritance
+    • Extract repetitive patterns (DRY, OOP, Variables)  
+
+    -- Variables → Custom properties
+    - These custom properties are inheritaced by all properties in the DOM
+    • :root { ... } → In this pseudo-class selector matches the <html> element, we define custom properties
+    • --propertyName: value →
+      • --color-primary: #ffdd36 →
+      • --border-size: 2px       →
+      • --border-radius: 10px    →
+    • rule: var(--propertyName) → Re-use the custom property to set the value of a rule
+      • background: var(--color-primary) →
+      • border-size: var(--border-size)  
+
+    -- Object-oriented CSS → Make re-usable styles for style multiple elements
+    • Separate container from content → Re-usable style for an element in different containers, select only the content style!
+    • Separate structure from skin → Play with more classes:
+                                     → One class for structure the re-usable style element
+                                     → Other class for style skin when we want to re-use it in different places 
+
+    -- BlockElementModifier(BEM) → Bunch of blocks/components/modules contain elements and can be modify
+                                 → Naming Convention!!
+    • Block → Can contain:
+              - Own elements: Make sense only inside block
+              - Other blocks: Can be repeates/reusable in other blocks
+            → Can be modified:
+              - Other styles
+              - Other context-content
+    • Naming convention → blockName → class name for the independent block(can be a container or any independent element)
+                        → blockName__elementName → class name for an own element inside the block(child element; can be direct/indirect)-Own Elements!
+                                                 → Only exists inside the block
+                        → blockName--modifier → classname for block with any modification (e.g style, colors, size,...)
+    
+    • So we can have in a block others blocks, elements and we can apply a modifier to that block to separate(change style,...)

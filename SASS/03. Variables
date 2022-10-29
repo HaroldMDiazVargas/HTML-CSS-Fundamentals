@@ -1,0 +1,83 @@
+Sass Variables vs Custom CSS Properties:
+    
+    Definition:
+      - Just like usual variable concept in other language programs
+      - Usages:
+        - colors, font-style, spacing, border values, so on
+    
+    Custom CSS Properties:
+      - These can be used in css or in Sass
+      - These are just like variables we define to store some rules
+      - syntax => --variable-name: value
+               => Use such as => rule: var(--variable-name)
+      - Is better to define in:
+        - :root{} this is just like html{} body{}; but this :root selector has more PRIORITY!!
+      - In Sass when we define this in a Partial, we just can use var() to share the Custom Property for the same partial folder files!
+      - We need to use @use in case is defined in another PartialFolder!
+
+    Sass Variables:
+      - These have the same functionality of CSS Custom Properties, but the syntax is different and are only part of Sass
+      - syntax => $var-name: value;
+               => Use such as => rule: namespace.$var-name;
+      - The "namespace" correspond the folderName where is store the Partial where is defined the Sass variable
+        - This "namespace" is defined when we use:
+          - @use "folderName" => This will search the index Partial
+                              => To access to Sass variable just use => folderName.$var.name;
+          - We can change the default namespace using:
+            - alias => @use "folderName" as namespaceName
+            - wildcard => @use "folderName" as * (So we dont use namespace, but is safer to use namespace!)
+          
+    
+    Sass Variables vs Custom CSS Properties:
+      - Have the same concept of store something
+      - The main difference is the management to load:
+        - Custom CSS Properties:
+          - Shared for all files in css because there's not partials, but in Sass we need to use @use!
+          - We can access to the variables in any file just calling var()
+          - We can't have variable with same name
+          - In DevTools we can see the rules have the var(var-name) call; e.g color: var(--color-primary)
+        - Sass Variables:
+          - Need to be manually import using @use in the corresponding file we want to use
+          - We can access to the variables by prefixing "namespace".$var-name
+          - We can have various SASS Variables with the same name but in different namespaces!
+          - In DevTools we see the rules have the original value e.g color: red;
+
+-- scss/
+  --globals/
+     -- _bolierplate.scss
+     -- _colors.scss
+     -- _index.scss
+     -- _typography.scss
+  -- /util/
+    -- _index.scss
+    -- _fonts.scss
+  -- styles.scss
+
+
+CSS Custom Properties
+
+--scss/globals/_colors.scss
+:root {
+  --background-color: hsl(0, 0%, 11%);
+  --text-color: hsl(0, 0%, 100%);
+}
+
+--scss/globals/_bolierplate.scss
+...
+background-color: var(--background-color);
+...
+
+
+
+SASS VARIABLES
+
+-- scss/util/_fonts.scss                => Partials folder Util
+$font: "Open Sans", sans-serif;
+
+
+-- scss/globals/_bolierplate.scss       => Partials folder Globals
+@use "../util" as u;
+...
+font-family: u.$font;
+...
+

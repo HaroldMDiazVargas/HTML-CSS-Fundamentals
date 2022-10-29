@@ -1,0 +1,70 @@
+SASS:
+    Definition:
+      - Syntactically Awesome Style Sheets
+      - CSS Preprocesor
+    
+    Syntax when running SASS:
+      - 1. .sass: Original syntax, but it lacks of semicolons and brackets!
+                 Only indentation
+      - 2. .scss: More similar to css 
+    
+    
+    Transpile(Translate+Compile) to CSS:
+      - Browsers only understand pure css, so we need to compite them:
+        - Vainilla JS: If we are working on a project without any framework, we need to explicitly transpile our 
+                       scss file:
+                       - Using webpack => scss loader!!
+                       - Sass compiler extension(VSCode)
+                       - Task runner(Gulp):
+                         - Allow sass debug, remove unused code!
+        - Angular framework: This framework natively support .scss files!!
+    
+    Transpile to CSS with Lie Sass Compiler Extension:
+      - Install Live Sass Compiler Extension!
+      - .vscode/settings.json => Define where to save the transpile css file!
+      -  And start Watching mode!! To detect changes!!
+      - Output:
+        - styles.css => This is the styles in common css syntax
+        - styles.css.mp => This is a file has the "map" interpretation between both files
+                           So it allows us to see in DevTool in what line of the ".cscc" correspond the actual ".css" rule!!
+                        
+    Transpile to CSS with Gulp:
+      - Run => npm install gulp gulp-sass sass --save-dev
+               - gulp: Task runner that automatically run compile task
+               - gulp-sass: sass plugin for gulp, compile our sass
+               - sass: package will be used by gulp under the hood
+      - Make gulp file: JavaScript functions for gulp to run using javascript and node modules importation!
+      - in terminal run => gulp
+
+
+-- styles.css
+$color: red;
+
+h1,
+h2 {
+  color: $color;
+}
+
+
+
+
+-- .vscode/settings.json
+
+{
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": "/dist",
+      "savePathReplacementPairs": null
+    }
+  ]
+}
+
+
+
+-- dist/styles.css (TRANSPILED)
+h1,
+h2 {
+  color: red;
+}/*# sourceMappingURL=styles.css.map */

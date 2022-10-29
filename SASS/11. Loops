@@ -1,0 +1,25 @@
+Loops in Sass:
+    @each:
+      - We can cycle to a map and get each key:value pair on on each iteration
+      - We can generate new classes names for example!
+        - @each $key, $var in $mapName{
+          .text-#{$var1}{
+              color: $var2
+          }
+        }
+
+    @for:
+      - we can generate a loop specifyng the limits
+      - We can generate more classes names for example!
+      - @for $i from 1 through 9 {
+            .text-#{$key}-light-#{$i} {
+                color: mix(color1, color2, $i*10)          => Mix two colors with a given percent of the color1
+            } 
+      }
+
+
+      - @for $i from 1 through 9 {
+            .text-#{$key}-light-#{$i} > * {                 => all the elements inside that created class!
+                color: mix(color1, color2, $i*10)          
+            } 
+      }

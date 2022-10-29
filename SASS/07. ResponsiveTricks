@@ -1,0 +1,157 @@
+Tricks for Responsive webpage:
+    Responsive container max-width:
+      - We can define a max-width static base on certain pixels e.g max-width: 1000px
+      - But is better to use "margin-inline" together with "min()"function that takes:
+        - value1
+        - value2
+      - This function picks the min value, so we can put in:
+        - value1 => a dynamic value that will change according size increase and we can set a margin implicitly
+                 => 100% - 4rem => this means the max-width will be total width and remove 4rem that determiantes the margin
+        - value2 => the static defautl(1000px)
+                 => 1000px => this means the max-width will be 1000px
+      - So the max-width will be dynamically change until the 1st value is greater than 1000px,
+      - With margin-inline:auto; we can compute the margin according the "4rem" we passed in max-width !!
+
+    Responsive breakpoints(media queries):
+      - Use @mixin together Sass maps to define:
+        - one breakpoint-up mixin for (min-width) 
+        - another breakpoint-down mixin for (max-width)
+      - Remember to use "rem" units to have a better look according the root base font
+        so is better to create a function to convert pixels => rem
+
+    Responsive font-size:
+      - Use clamp() function to define sthe font size for headers dynamically:
+        - 1rst arg => Min font size allowed
+        - 2nd arg => Prefer font size
+        - 3rd arg => Max font size allowed
+      - For this is better to use "rem" together with "vw" relative units
+      - We can reuse the function convert pixels => rem, and pass px!!
+      - How to determinate these args?
+        - 1. Set the min and max value according our own belief of min and max resolution!
+        - 2. Compute the min "vw" => 365px*0.01 = 3.65px = 1vw(MIN)
+             Compute the max "vw" => 1440px*0.01 = 14.4px = 1vw (MAX)
+        - 3. Set a base unit in px and adds number of vw we consider pertinent
+            e.g 14px + 2vw = 14px + 7.3px => 21.3px (This will be in the min resolution case)
+                14px + 2vw = 14px + 28.8px => 42.8px (This will be in the max resolution case)
+
+
+
+-- app/scss/layout/_grid.scss
+@use "../util" as u;
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  gap: u.rem(40px);
+  max-width: min(100% - u.rem(40px), u.rem(1000px));
+  margin-inline: auto;
+
+  @include u.breakpoint(medium) {
+    grid-template-columns: 0.5fr 0.5fr;
+    grid-template-rows: auto;
+  }
+
+  &__main,
+  &__sidebar {
+    padding: u.rem(25px);
+  }
+
+-- app/scss/util/_functions.scss
+@use "sass:math";
+
+@function rem($pixel) {
+  @if unitless($pixel) {
+    @error "Please use px units instead of just numbers";
+  } @else {
+    @return math.div($pixel, 16px) + rem;
+  }
+}
+
+
+
+
+-- app/scss/util/_breakpoints.scss
+// 700px, 900px, 1440px
+@use "sass:math";
+
+// Used for up(min-width)
+$breakpoints-up: (
+  "medium": 700px,
+  "large": 900px,
+  "xlarge": 1440px,
+);
+
+// Used for down(max-width)
+// 700px, 900px, 1440px
+@use "_functions" as f;
+
+// Used for up(min-width)
+$breakpoints-up: (
+  "medium": 700px,
+  "large": 900px,
+  "xlarge": 1440px,
+);
+
+// Used for down(max-width)
+
+$breakpoints-down: (
+  "small": 699.98px,
+  "medium": 899.98px,
+  "large": 1439.98px,
+);
+
+@mixin breakpoint($size) {
+  @media (min-width: f.rem(map-get($breakpoints-up, $size))) {
+    @content;
+  }
+}
+
+@mixin breakpoint-down($size) {
+  @media (max-width: f.rem(map-get($breakpoints-down, $size))) {
+    @content;
+  }
+}
+
+
+
+
+
+
+
+
+-- app/scss/globals/_typography
+@use "../util/" as u;
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  line-height: 1.1;
+  margin-top: 0;
+}
+
+h1 {
+  // font-size: clamp(2.8rem, 1.6rem + 2vw, 4rem); //Use if let font-size = 62.5%
+  font-size: clamp(
+    u.rem(28px),
+    u.rem(16px) + 2vw,
+    u.rem(40px)
+  ); //Use if let font-size = 100%
+}
+
+h2 {
+  // font-size: clamp(2.2rem, 1.4rem + 1.5vw, 3.6rem);   
+  font-size: clamp(u.rem(22px), u.rem(14px) + 2vw, u.rem(36px));
+}
+
+p {
+  margin-top: 0;
+  font-size: u.rem(16px);
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+}

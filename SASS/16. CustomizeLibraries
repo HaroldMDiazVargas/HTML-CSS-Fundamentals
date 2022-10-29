@@ -1,0 +1,20 @@
+Extend libraries
+    Definition:
+      - If we want to use our own library or another one library and if we maybe want to change some styles about:
+        - theme(primary, secondary, so on)
+      - Define our own global rules that will change look!
+    
+    !default word:
+      - We need to apply this in all the variables(in the library) we want to customize by the user 
+      - This means, the variable will take the value ONLY IF there's not a default value pre setted!
+      e.g $color-primary: red !default;
+
+    Order of @forward!
+      - So we need to import the libraruy AFTER we set the our customize properties!
+
+  
+-- e.g
+
+$color-primary: blue;
+
+@forward "library"

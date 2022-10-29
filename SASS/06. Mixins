@@ -1,0 +1,43 @@
+Sass Mixins:
+    Definition:
+      - Allow us to encapsulate styles which can be: various rules, or @media, @if, so on. In a single place!!
+      - We place this mixin inside rule code-block to include these styles in that block styles!
+      - We can pass args like a function
+      - If we have defined @content; que can pass rules to this mixin in the code-block, we can pass other sassExpressions, e.g @for
+      - Syntax => @mixin mixinName($args){ ... }
+                  - To load this mixin:
+                    => @include namespace.mixinName(args); 
+                    => @include namespace.mixinName(args){ ... } => If we have defined @content in the mixin definition!
+
+    Default Values:
+      - We can specify default values to our args:
+        e.g @mixin mixinName($arg1: value, $arg2: value, ...){ ... }
+            => @include namespace.mixinName; 
+
+-- app/scss/util/breakpoints
+// 700px, 900px, 1440px
+@use "sass:math";
+
+
+$breakpoints-up: (
+  "medium": 700px,
+  "large": 900px,
+  "xlarge": 1440px,
+);
+
+@mixin breakpoint($size) {
+  @media (min-width: convertPxToRem(map-get($breakpoints-up, $size))) {
+    @content;
+  }
+}
+ 
+@function convertPxToRem($px) {
+  @if not unitless($px) {
+    $px: strip-units($px);
+  }
+  @return math.div($px, 16) * 1rem;
+}
+
+@function strip-units($value) {
+  @return math.div($value, ($value * 0 + 1));
+}

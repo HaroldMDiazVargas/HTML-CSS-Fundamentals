@@ -1,0 +1,31 @@
+Purging CSS
+    Definition:
+      - Most probably we will have a lot of css rules we don't use, so this is called unused code!
+      - This can be present when we have our own library or another third party library with large bunch of rules!
+    
+    Installation:
+      - npm install gulp-purgecss --save-dev
+    
+    Modify the config gulp file:
+      - We can watch for our html also, and purge everytime!
+
+
+
+-- gulpfile.js
+
+const { src, dest, watch, series } = require("gulp");
+const sass = require("gulp-sass")(require("sass"));
+const purgecss = require("gulp-purgecss");
+
+function buildStyles() {
+  return src("app/scss/styles.scss")
+    .pipe(sass())
+    .pipe(purgecss({ content: ["app/*.html"] }))
+    .pipe(dest("dist"));
+}
+
+function watchTask() {
+  watch(["app/scss/**/*.scss", "app/*.html"], buildStyles);
+}
+
+exports.default = series(buildStyles, watchTask);

@@ -1,0 +1,28 @@
+Maps:
+    Definition:
+      - Analogy of a object/collection/dictionary
+      - Allow us to define a kind of dictionary to store in a variable
+      - Syntax => $mapName:("key1":value, "key2":value2, ...)
+                  To call this we use:
+                  => map-get($mapName, key)
+                     this will return the respective value!!
+    
+    Get the values:
+      - map-get($mapName, "key")
+    
+    hasKey:
+      - map-has-key(mapName, "key") //true or false
+    
+    remove key:
+      - map-remove(mapName, "key")
+
+    merge:
+      - map-merge(mapName1, mapName2)
+      - map-merge(mapName1, ("key1":value, "key2":value2, ..))
+
+    
+    Nest maps:
+      - We can nest various maps, this is useful for helper/utilies functions
+      
+
+    

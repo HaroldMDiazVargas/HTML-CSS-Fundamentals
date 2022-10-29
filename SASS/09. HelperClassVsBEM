@@ -1,0 +1,18 @@
+Helper classes vs BEM:
+    Definition:
+      - We can choose between helpers classes approaches or use just BEM approach for our styles
+    
+    Helper classes:
+      - These are classes like globally that represent some styles we can use in different parts of our page
+        so we can re use that class and it has a meaningful name 
+        e.g class="green" => this is a class that represents a green background!
+    
+    BEM:
+      - When we want to add modifications of color, style(skin) of our elements, we use the modifier convention:
+        e.g class="block--green" => this represent a green bakcground for a given block!
+    
+    Using both:
+      - Is not a bad approach if we use both conventions, so we can use BEM and if we find we can reuse helper classes
+        for various blocks, it would be nice, making even our classes names more meaningful and global
+    
+    So in conclusion we can put in our globals/ partials these Helper Classes!!

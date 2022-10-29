@@ -1,0 +1,10 @@
+Functions in Sass
+    Built-in functions:
+      - mix(), lighten(), unitless(), clamp(), ...
+      - completent(color) => return the complement color we pass here!
+
+    Custom functions:
+      - @function name(@args){
+        ...
+        @return @values, ...
+      }

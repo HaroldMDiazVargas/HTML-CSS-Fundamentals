@@ -1,0 +1,45 @@
+Sass - Partials
+    Definition:
+      - Split styles in multiple files and organize even in subfolders!
+    
+    Naming Convention:
+      - We use underscore "_partialName" to set the name of a partial!
+
+    Global Partials:
+      - split1. Boilerplate styles:
+          - We can define global styles
+          - We create a file app/scss/globals/_boilerplate.scss
+          - styles such as => html{}, *, => border-box, font-size, font-family,
+        
+      - split2. Typography styles:
+          - Styles related to text elements
+          - We create a file app/scss/globals/_typography.scss
+          - styles such as - h1,h2,h3{ font-weight, line-height, margin-top ,,}
+                           - p{ margin-top}
+                           - a, a:visited, a:active{ text-decoration: none }
+    
+    Load Partials into our styles.scss:
+      - Create a _index partial in in each scss/partialName folder!
+      - In this _index partial load all partials for the corresponding folder!
+
+    Using @forward from _index:
+      - Take the styles for the partial and load 
+      - syntax => @forward "scssFilename"
+      - scss will detects if scssFilename has "_" so we just need pass name without "_"
+      -
+
+    Using @forward from styles.scss:
+      - Will look for a partial called "index" when we pass dirName
+      - syntax => @forward "partialFolder"
+
+    
+
+-- app/scss/globals/
+ -- _index.scss
+ -- _boilerplate.scss 
+ -- _typography.scss
+
+
+
+-- app/scss/styles.scss
+@forward "globals"

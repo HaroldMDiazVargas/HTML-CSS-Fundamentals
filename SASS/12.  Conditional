@@ -1,0 +1,13 @@
+Conditional in Sass
+    @if:
+      - Evaluate a condition so we can generate styles, selectors!
+      - The next class/stryles will exist only when the condition is true!
+      - @if(condition){
+        .test-if{
+            color: black;
+        }
+      } @else{
+            color: white;
+      }
+    
+    
